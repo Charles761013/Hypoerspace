@@ -156,9 +156,9 @@ function deploy_hyperspace_node() {
     # 登录到 Hive
     /root/.aios/aios-cli hive login
 
-    # 提示用户选择等级
-    echo "请选择等级（1-5）："
-    select tier in 1 2 3 4 5; do
+    # 提示用户输入等级
+    while true; do
+        read -p "请输入等级（1-5）：" tier
         case $tier in
             1|2|3|4|5)
                 echo "你选择了等级 $tier"
