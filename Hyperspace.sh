@@ -48,7 +48,7 @@ function main_menu() {
             9)  exit_script ;;
             *)  echo "无效选择，请重新输入！"; sleep 2 ;;
         esac
-        break
+        exit 0
     done
 }
 
@@ -186,9 +186,6 @@ function deploy_hyperspace_node() {
 
     echo "部署hyperspace节点完成，'/root/.aios/aios-cli start --connect' 已在屏幕内运行，系统已恢复到后台。"
 
-    # 提示用户按任意键返回主菜单
-    read -n 1 -s -r -p "按任意键返回主菜单..."
-    main_menu
 }
 
 # 查看积分
@@ -209,9 +206,6 @@ function delete_node() {
     
     echo "'aios-cli kill' 执行完成，节点已停止。"
 
-    # 提示用户按任意键返回主菜单
-    read -n 1 -s -r -p "按任意键返回主菜单..."
-    main_menu
 }
 
 # 启用日志监控
@@ -269,9 +263,6 @@ EOL
     echo "可以通过查看 /root/monitor.log 来检查监控状态"
     sleep 2
 
-    # 提示用户按任意键返回主菜单
-    read -n 1 -s -r -p "按任意键返回主菜单..."
-    main_menu
 }
 
 # 启用积分监控
@@ -320,9 +311,6 @@ EOL
     echo "可以通过查看 /root/points_monitor.log 来检查监控状态"
     sleep 2
 
-    # 提示用户按任意键返回主菜单
-    read -n 1 -s -r -p "按任意键返回主菜单..."
-    main_menu
 }
 
 # 查看日志
@@ -336,10 +324,6 @@ function view_logs() {
     else
         echo "日志文件不存在: $LOG_FILE"
     fi
-
-    # 提示用户按任意键返回主菜单
-    read -n 1 -s -r -p "按任意键返回主菜单..."
-    main_menu
 }
 
 # 查看使用的私钥
@@ -348,9 +332,6 @@ function view_private_key() {
     aios-cli hive whoami
     sleep 2
 
-    # 提示用户按任意键返回主菜单
-    read -n 1 -s -r -p "按任意键返回主菜单..."
-    main_menu
 }
 
 # 查看aios daemon状态
@@ -359,9 +340,6 @@ function view_status() {
     aios-cli status
     sleep 2
 
-    # 提示用户按任意键返回主菜单
-    read -n 1 -s -r -p "按任意键返回主菜单..."
-    main_menu
 }
 
 # 退出脚本
